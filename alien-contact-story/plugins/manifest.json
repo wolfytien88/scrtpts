@@ -1,0 +1,88 @@
+{
+  "name": "alien-contact-story",
+  "version": "1.0.0",
+  "displayName": "《星際接觸》故事創作套件",
+  "description": "地球未來與外星接觸的12章冒險故事創作工具包",
+  "author": "wolfytien88@gmail.com",
+  "language": "zh-TW",
+
+  "skills": [
+    {
+      "id": "world-builder",
+      "file": "skills/world-builder.md",
+      "trigger": "描述科技、地點、宇宙設定、外星環境",
+      "description": "確保2157年科技水平與世界觀的一致性"
+    },
+    {
+      "id": "chapter-writer",
+      "file": "skills/chapter-writer.md",
+      "trigger": "起草、修改或審查任何章節",
+      "description": "章節結構模板與各章特定寫作指引"
+    },
+    {
+      "id": "alien-linguist",
+      "file": "skills/alien-linguist.md",
+      "trigger": "撰寫沃艾人或卡洛族溝通場景",
+      "description": "沃艾語「結果優先」語法規則與翻譯格式"
+    }
+  ],
+
+  "hooks": [
+    {
+      "event": "PreToolUse",
+      "script": "hooks/PreToolUse.sh",
+      "description": "寫作前：章節順序、卡洛族出場保護、角色性格提示"
+    },
+    {
+      "event": "PostToolUse",
+      "script": "hooks/PostToolUse.sh",
+      "description": "寫作後：伏筆追蹤、字數統計、沃艾語法簡查"
+    },
+    {
+      "event": "SessionStart",
+      "script": "hooks/SessionStart.sh",
+      "description": "啟動：載入進度、未閉合伏筆、可用工具提示"
+    }
+  ],
+
+  "subagents": [
+    {
+      "id": "chapter-drafter",
+      "file": "subagents/chapter-drafter.md",
+      "description": "根據大綱起草完整章節草稿（4000-6000字）"
+    },
+    {
+      "id": "science-advisor",
+      "file": "subagents/science-advisor.md",
+      "description": "審查硬科幻元素的科學準確性，回傳報告"
+    },
+    {
+      "id": "alien-designer",
+      "file": "subagents/alien-designer.md",
+      "description": "擴展沃艾人與卡洛族的文化、生物學設定"
+    },
+    {
+      "id": "editor",
+      "file": "subagents/editor.md",
+      "description": "審查風格、節奏、角色聲音、伏筆一致性"
+    }
+  ],
+
+  "story": {
+    "title": "星際接觸",
+    "titleEn": "Stellar Contact",
+    "totalChapters": 12,
+    "protagonist": "Dr. 林曉晨（Lin Xiao-Chen）",
+    "setting": "2157–2159年",
+    "genre": ["科幻", "冒險", "第一接觸"],
+    "targetWordCount": "48000–72000字"
+  },
+
+  "directories": {
+    "memory": "CLAUDE.md/",
+    "skills": "skills/",
+    "hooks": "hooks/",
+    "subagents": "subagents/",
+    "output": "chapters/"
+  }
+}

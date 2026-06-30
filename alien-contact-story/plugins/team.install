@@ -1,0 +1,44 @@
+# 《星際接觸》協作安裝指引
+
+## 快速安裝（協作作家）
+
+```bash
+# 1. 複製專案
+git clone <repo-url> alien-contact-story
+cd alien-contact-story
+
+# 2. 建立章節輸出目錄
+mkdir -p chapters world/aliens
+
+# 3. 設定 hooks 執行權限
+chmod +x hooks/*.sh
+
+# 4. 開始工作
+# 系統會自動執行 SessionStart.sh
+```
+
+## 協作角色分工建議
+
+| 角色 | 負責章節 | 主要使用的 Subagent |
+|------|----------|---------------------|
+| 主筆A | 第1–4章（接觸前） | chapter-drafter + science-advisor |
+| 主筆B | 第5–8章（信任建立）| chapter-drafter + alien-designer |
+| 主筆C | 第9–12章（決戰）  | chapter-drafter + editor |
+| 審閱  | 全部 | editor（跨章一致性）|
+
+## 工作規範
+
+1. 每完成一章，更新 `CLAUDE.md/project.md` 中的伏筆追蹤清單
+2. 不得跳章撰寫（除非已確認前章大綱完整）
+3. 所有角色對話修改需通知 editor subagent 重新審查聲音一致性
+4. 新增世界觀設定需更新 `CLAUDE.md/global.md`，並通知其他協作者
+
+## 插件能力摘要
+
+```
+CLAUDE.md      → 記住故事規則、角色、世界觀
+Skills         → 自動提供寫作專業能力
+Hooks          → 守護一致性與品質
+Subagents      → 委派草稿/審查/設計工作
+Plugins        → 打包為可安裝的團隊工具
+```
